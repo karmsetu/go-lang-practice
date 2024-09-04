@@ -12,8 +12,10 @@ const PORT = 8000
 
 func main() {
 	
-	PerformGetRequest("/")
-	PerformGetRequest("/getit")
+	// PerformGetRequest("/")
+	// PerformGetRequest("/getit")
+
+	PerformPostJSONRequest("/post")
 }
 
 func PerformGetRequest(path string) {
@@ -38,6 +40,32 @@ func PerformGetRequest(path string) {
 	responseString.Write(dataByte) 
 	fmt.Println(string(dataByte))
 	fmt.Println(responseString)
+
+	defer response.Body.Close()
+}
+
+func PerformPostJSONRequest(path string){
+url := &url.URL{
+		Scheme: "http",
+		Host: "localhost:8000",
+		Path: path,
+	};
+
+	// fake json payload
+	requestBody := strings.NewReader(`
+	{
+		"Name":"Boi",
+		"toBe": "Good"
+	}
+	`)
+
+	response, err :=http.Post(url.String(), "application/json", requestBody)
+	CheckError(err)
+
+	content, err := io.ReadAll(response.Body)
+	CheckError(err)
+
+	fmt.Println(string(content))
 
 	defer response.Body.Close()
 }
