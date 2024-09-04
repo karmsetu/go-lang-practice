@@ -2,7 +2,7 @@ import express from 'express';
 
 const app = express();
 
-const PORT = 3000;
+const PORT = 8000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -24,4 +24,4 @@ app.post('/postform', (req, res) => {
     res.status(200).send(JSON.stringify(req.body));
 });
 
-app.listen(PORT, () => console.log(`lsitening to: http://localhost:3000`));
+app.listen(PORT, () => console.log(`lsitening to: http://localhost:${PORT}`));
