@@ -1,0 +1,5 @@
+# get '/get'
+
+GET http://localhost:3000/getit HTTP/1.1
+
+

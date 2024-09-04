@@ -1,0 +1,7 @@
+# post on 'get;
+POST http://localhost:3000/post HTTP/1.1
+Content-Type: application/json
+
+{
+  "message": "Hello to the server"
+}
