@@ -15,7 +15,9 @@ func main() {
 	// PerformGetRequest("/")
 	// PerformGetRequest("/getit")
 
-	PerformPostJSONRequest("/post")
+	// PerformPostJSONRequest("/post")
+
+	PerformPostFormRequest("postform")
 }
 
 func PerformGetRequest(path string) {
@@ -68,6 +70,27 @@ url := &url.URL{
 	fmt.Println(string(content))
 
 	defer response.Body.Close()
+}
+
+func PerformPostFormRequest(path string) {
+	myUrl := &url.URL{
+		Scheme: "http",
+		Host: "localhost:8000",
+		Path: path,
+	};
+
+	data := url.Values{}
+	data.Add("firstName", "Boi")
+	data.Add("lastName", "gajodhar")
+	data.Add("age", "69")
+
+	response, err :=http.PostForm(myUrl.String(), data)
+	CheckError(err)
+
+	content, _:= io.ReadAll(response.Body)
+
+	defer response.Body.Close()
+	fmt.Println(string(content))
 }
 
 func CheckError(err error){
