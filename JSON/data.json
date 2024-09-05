@@ -1,0 +1,26 @@
+[
+    {
+        "courseName": "ReactJS",
+        "Price": 299,
+        "website": "YT",
+        "Tags": ["web dev", "js"]
+    },
+    {
+        "courseName": "NextJS",
+        "Price": 199,
+        "website": "FB",
+        "Tags": ["web dev", "js"]
+    },
+    {
+        "courseName": "AngularJS",
+        "Price": 299,
+        "website": "IG",
+        "Tags": ["web dev", "js"]
+    },
+    {
+        "courseName": "VueJS",
+        "Price": 299,
+        "website": "X",
+        "Tags": null
+    }
+]
