@@ -1,0 +1,38 @@
+# get all course
+GET http://localhost:4000/courses
+
+# get single course
+GET http://localhost:4000/course/2
+
+# POST a single course
+POST http://localhost:4000/course
+Content-Type: : application/json
+
+{
+  "courseName":"GOLANG",
+  "price": 69,
+  "author" : {
+    "fullName":"UNKNWON",
+    "website":"GOLANG.org"
+  }
+}
+
+# delete
+DELETE http://localhost:4000/course/53
+
+# Update 
+PUT http://localhost:4000/course/53
+Content-Type: : application/json
+
+{
+  "courseName":"GOLANG",
+  "price": 169,
+  "author" : {
+    "fullName":"Someone",
+    "website":"GOLANG.org"
+  }
+}
+
+
+
+
